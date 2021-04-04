@@ -1,4 +1,4 @@
-# 8 queens, 8x8 chess board
+# romania problem
 # A*
 a = 1
 if (a > 0 and a < 2

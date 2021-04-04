@@ -1,4 +1,4 @@
-# 8 queens, 8x8 chess board
+# romania problem
 # choose ucs, ids, dls, bidirectional: IDS
 import copy
 
