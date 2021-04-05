@@ -1,9 +1,9 @@
 class Node:
-    def __init__(self, name, child={}, parent=None):
+    def __init__(self, name):
         # child adalah dict of node, yang mapping jarak current node ke child, state adalah state node 
         # parent itu node di atas sekarang
         self.name  = name
-        self.child  = child
+        self.child  = {}
 
     def add_or_update_child(self, child):
         self.child.update(child)
