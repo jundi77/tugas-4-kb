@@ -20,18 +20,20 @@ class Node:
 
     @staticmethod
     def init_simplified_romania():
+        # nilai heuristic yang dimasukkan di sini adalah straight line distance
+        # ke bucharest
         nodes = {
-            'Arad'          : Node('Arad'),
-            'Timisoara'     : Node('Timisoara'),
-            'Lugoj'         : Node('Lugoj'),
-            'Mehadia'       : Node('Mehadia'),
-            'Drobeta'       : Node('Drobeta'),
-            'Craiova'       : Node('Craiova'),
-            'Sibiu'         : Node('Sibiu'),
-            'Rimnicu Vilcea': Node('Rimnicu Vilcea'),
-            'Pitesti'       : Node('Pitesti'),
-            'Fagaras'       : Node('Fagaras'),
-            'Bucharest'     : Node('Bucharest'),
+            'Arad'          : Node('Arad', 366),
+            'Timisoara'     : Node('Timisoara', 329),
+            'Lugoj'         : Node('Lugoj', 244),
+            'Mehadia'       : Node('Mehadia', 241),
+            'Drobeta'       : Node('Drobeta', 242),
+            'Craiova'       : Node('Craiova', 160),
+            'Sibiu'         : Node('Sibiu', 253),
+            'Rimnicu Vilcea': Node('Rimnicu Vilcea', 193),
+            'Pitesti'       : Node('Pitesti', 100),
+            'Fagaras'       : Node('Fagaras', 176),
+            'Bucharest'     : Node('Bucharest', 0),
         }
 
         nodes['Arad'].add_or_update_child({
