@@ -2,6 +2,8 @@
 # A*
 from PQueue import *
 from Node import *
+from time import perf_counter_ns
+# import tracemalloc
 
 class AStarSearch:
     def __init__(self, node):
@@ -99,7 +101,11 @@ class AStarSearch:
 if __name__ == '__main__':
     nodes = Node.init_simplified_romania()
     finder = AStarSearch(nodes['Timisoara'])
+
+    # tracemalloc.start()
     finder.search(nodes['Bucharest'])
+    # current, peak = tracemalloc.get_traced_memory()
+    # tracemalloc.stop()
 
     if finder.is_found():
         out = "Ketemu route dari Timisoara ke Bucharest: "
@@ -114,3 +120,7 @@ if __name__ == '__main__':
             out = out + " -> "
         out = out + "sampai"
         print(out, "jarak =", dist)
+
+    # print()
+    # print('*' * 5, 'METRIC', '*' * 5)
+    # print(f'memory usage = {current}, peak = {peak}')

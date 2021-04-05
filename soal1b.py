@@ -2,6 +2,8 @@
 # choose ucs, ids, dls, bidirectional: IDS
 import copy
 from Node import *
+from time import perf_counter_ns
+# import tracemalloc
 
 class IDS: # iterative deepening search
     # ini sudah disesuaikan dengan kebutuhan 8 queens, yakni tak ada queen menyerang
@@ -86,7 +88,12 @@ if __name__ == "__main__":
     nodes = Node.init_simplified_romania()
     finder = IDS(nodes['Timisoara'])
     # finder.set_verbose(True)
+
+    # tracemalloc.start()
     finder.search(nodes['Bucharest'], 4)
+    # current, peak = tracemalloc.get_traced_memory()
+    # tracemalloc.stop()
+
     if finder.is_found():
         out = "Rute ditemukan! "
         prev = None
@@ -100,6 +107,9 @@ if __name__ == "__main__":
             out = out + " -> "
         out = out + "sampai"
         print(out, "jarak =", dist)
-        exit()
-    print("Rute tidak ditemukan")
-    
+    else:
+        print("Rute tidak ditemukan")
+
+    # print()
+    # print('*' * 5, 'METRIC', '*' * 5)
+    # print(f'memory usage = {current}, peak = {peak}')
