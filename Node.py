@@ -12,7 +12,7 @@ class Node:
     def set_heuristic_value(self, value):
         self.__heuristic_val = value
 
-    def get_heuristic_value(self, value):
+    def get_heuristic_value(self):
         return self.__heuristic_val
 
     def remove_child(self, child):
