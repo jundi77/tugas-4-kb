@@ -13,6 +13,9 @@ class PQueue:
             return
         self.__values.sort(reverse=not self.__descending)
 
+    def clear(self):
+        self.__values.clear()
+
     def change_sort_key(self, key):
         if key == 'default':
             self.__custom_sort_key = None
