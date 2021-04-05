@@ -1,12 +1,19 @@
 class Node:
-    def __init__(self, name):
+    def __init__(self, name, heuristic_val=0):
         # child adalah dict of node, yang mapping jarak current node ke child, state adalah state node 
         # parent itu node di atas sekarang
-        self.name  = name
-        self.child  = {}
+        self.name            = name
+        self.__heuristic_val = heuristic_val
+        self.child           = {}
 
     def add_or_update_child(self, child):
         self.child.update(child)
+
+    def set_heuristic_value(self, value):
+        self.__heuristic_val = value
+
+    def get_heuristic_value(self, value):
+        return self.__heuristic_val
 
     def remove_child(self, child):
         del self.child[child]
