@@ -27,19 +27,19 @@ nodes = Node.init_simplified_romania()
 start = nodes['Timisoara']
 goal = nodes['Bucharest']
 
-start_time = time.time_ns()
+start_time = time.perf_counter_ns()
 visited = bfs(start, goal)
-end_time = time.time_ns()
+end_time = time.perf_counter_ns()
 
 cur_node = goal
 total_distance = 0
 
-print(f'\npath from {goal.name} to {start.name}: \n {goal.name} ', end='')
+print(f'{goal.name} ', end='')
 
 while cur_node != start:
   total_distance += cur_node.child[visited[cur_node]]['w']
   cur_node = visited[cur_node]
   print(f'---> {cur_node.name} ', end='')
 
-print(total_distance)
-print("\n--- %s seconds ---" % (end_time - start_time))
+print("\nTotal Jarak\t %s" % total_distance)
+print("Waktu Eksekusi\t %s ns" % (end_time - start_time))
