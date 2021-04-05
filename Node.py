@@ -32,6 +32,14 @@ class Node:
                 'w': 140
             },
             nodes['Timisoara']: {
+                'w': 118
+            },
+        })
+        nodes['Timisoara'].add_or_update_child({
+            nodes['Arad']: {
+                'w': 118
+            },
+            nodes['Lugoj']: {
                 'w': 111
             },
         })
