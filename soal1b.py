@@ -47,6 +47,7 @@ class IDS: # iterative deepening search
             node_result = self.dls_search_node(self.__node)
             if self.__found == True:
                 self.__node_found = node_result
+                self.__route.insert(0, self.__node)
                 return node_result
             del self.__visited
         if self.__verbose: print('*' * 10, ' End Searching ', '*' * 10)
@@ -89,14 +90,16 @@ if __name__ == "__main__":
     if finder.is_found():
         out = "Rute ditemukan! "
         prev = None
+        dist = 0
         for r in finder.get_route():
             out = out + r.name
             if prev != None:
                 out = out + "(" + str(prev.child[r]['w']) + ")"
+                dist = dist + prev.child[r]['w']
             prev = r
             out = out + " -> "
         out = out + "sampai"
-        print(out)
+        print(out, "jarak =", dist)
         exit()
     print("Rute tidak ditemukan")
     
