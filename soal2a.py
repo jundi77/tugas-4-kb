@@ -19,9 +19,18 @@ for node in nodes:
 
 start_time = time.time()
 priorityQueue.put((start.get_heuristic_value(), start))
+total_distance = 0
+node = start
 
 while not priorityQueue.empty():
+    last_node = node
     node = priorityQueue.get()[1]
+
+    if node != start:
+      print(last_node.child[node]['w'])
+      total_distance += last_node.child[node]['w']
+      last_node = node
+
     visited[node] = True
     print(node.name)
     if node == goal:
@@ -30,4 +39,6 @@ while not priorityQueue.empty():
     for child in node.child:
         if child not in visited:
             priorityQueue.put((child.get_heuristic_value(), child))
+
+print(total_distance)
 print("--- %s seconds ---" % (time.time() - start_time))
